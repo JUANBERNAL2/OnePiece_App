@@ -24,5 +24,6 @@ const styles = StyleSheet.create({
     fontSize: 24,
     color: "#fff",
     fontFamily: "JacquesFrancoisShadow",
+    marginTop: 20,
   },
 });

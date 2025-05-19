@@ -57,11 +57,14 @@ export default function Luffy() {
             style={{ width: 280, height: 280 }}
           />
           <View style={styles.container}>
-            {/* Título de la pantalla */}
             <Text style={styles.Audio}>Reproductor de Audio</Text>
 
-            {/* Botón que al presionar ejecuta la función playSound */}
-            <Button title="Reproducir Audio" onPress={playSound} />
+            {/* Botón que al presionar para escuchar al personaje*/}
+            <Button
+              title="Reproducir Audio"
+              onPress={playSound}
+              color="#00F52D"
+            />
           </View>
 
           {/* Botón de Volver */}
@@ -104,11 +107,11 @@ const styles = StyleSheet.create({
     marginTop: 30,
     paddingVertical: 20,
     paddingHorizontal: 30,
-    backgroundColor: "#780088",
+    backgroundColor: "#00F52D",
     borderRadius: 15,
   },
   backButtonText: {
-    color: "#000000",
+    color: "#000",
     fontSize: 23,
     fontFamily: "JacquesFrancoisShadow",
   },

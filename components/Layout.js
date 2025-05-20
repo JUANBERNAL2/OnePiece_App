@@ -17,6 +17,7 @@ const { height } = Dimensions.get("window");
 // Estilos para el layout
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     minHeight: height,
     width: "100%",
   },

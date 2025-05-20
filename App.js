@@ -13,6 +13,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
 
+import JokeScreen from "./screens/JokeScreen";
 import Luffy from "./screens/Luffy.js";
 import Zoro from "./screens/Zoro.js";
 import Nami from "./screens/Nami.js";
@@ -81,6 +82,12 @@ const HomeScreen = ({ navigation }) => {
       color: "#FFFFFF",
       screen: "Brook",
     },
+    {
+      source: require("./assets/Icons/sombrero-de-joker.png"),
+      title: "Brook",
+      color: "#65fef4",
+      screen: "JokeScreen",
+    },
     // Puedes agregar más personajes aquí
   ];
 
@@ -130,6 +137,7 @@ export default function App() {
         <Stack.Screen name="Robin" component={Robin} />
         <Stack.Screen name="Franky" component={Franky} />
         <Stack.Screen name="Brook" component={Brook} />
+        <Stack.Screen name="JokeScreen" component={JokeScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -147,6 +147,7 @@ const { height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     minHeight: height,
     backgroundColor: "#F2E8CF",
     alignItems: "center",

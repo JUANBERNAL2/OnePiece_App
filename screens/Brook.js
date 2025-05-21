@@ -79,7 +79,7 @@ export default function Brook() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#dbfab8",
     padding: 20,
     alignItems: "center",
     justifyContent: "center",

@@ -92,7 +92,7 @@ const HomeScreen = ({ navigation }) => {
     {
       source: require("./assets/Icons/diablo.png"),
       title: "Fruits",
-      color: "#6F6134",
+      color: "#6D8EC5",
       screen: "fruits",
     },
     // Puedes agregar más personajes aquí

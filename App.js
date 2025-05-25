@@ -23,7 +23,7 @@ import Chopper from "./screens/Chopper.js";
 import Robin from "./screens/Robin.js";
 import Franky from "./screens/Franky.js";
 import Brook from "./screens/Brook.js";
-import fruits from "./screens/fruits.js";
+import Fruits from "./screens/Fruits.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -93,7 +93,7 @@ const HomeScreen = ({ navigation }) => {
       source: require("./assets/Icons/diablo.png"),
       title: "Fruits",
       color: "#6D8EC5",
-      screen: "fruits",
+      screen: "Fruits",
     },
     // Puedes agregar más personajes aquí
   ];
@@ -145,7 +145,7 @@ export default function App() {
         <Stack.Screen name="Franky" component={Franky} />
         <Stack.Screen name="Brook" component={Brook} />
         <Stack.Screen name="JokeScreen" component={JokeScreen} />
-        <Stack.Screen name="fruits" component={fruits} />
+        <Stack.Screen name="Fruits" component={Fruits} />
         {/* Agrega más pantallas aquí */}
       </Stack.Navigator>
     </NavigationContainer>

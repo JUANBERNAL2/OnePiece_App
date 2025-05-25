@@ -40,10 +40,9 @@ const JokeScreen = () => {
         <View style={styles.container}>
           <Text style={styles.title}>!Random Jokes!</Text>
           <Button title="SAY A JOKE" onPress={fetchJoke} color="#00F52D" />
-          {loading && <ActivityIndicator size=" large" color="#0000ff" />}
+          {loading && <ActivityIndicator size=" large" color="#576238" />}
           {joke && <Text style={styles.jokeText}>{joke}</Text>}
-        </View>
-        <View style={styles.container}>
+
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}
@@ -84,7 +83,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
     paddingVertical: 20,
     paddingHorizontal: 30,
-    backgroundColor: "#13258b",
+    backgroundColor: "#6D8EC5",
     borderRadius: 15,
   },
   backButtonText: {

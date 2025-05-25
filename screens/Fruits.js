@@ -13,7 +13,7 @@ import {
 import Layout from "../components/Layout";
 import { useNavigation } from "@react-navigation/native";
 
-export default function fruits() {
+export default function Fruits() {
   const [fruits, setFruits] = useState([]);
   const [filteredFruits, setFilteredFruits] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -80,8 +80,6 @@ export default function fruits() {
           keyExtractor={(item) => item.id.toString()}
           renderItem={renderItem}
         />
-      </View>
-      <View style={styles.container}>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={styles.backButton}
@@ -125,7 +123,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     backgroundColor: "#eef6ff",
     margin: 10,
-    padding: 20,
+
     borderRadius: 10,
     elevation: 3,
     gap: 10,

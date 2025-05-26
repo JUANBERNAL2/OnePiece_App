@@ -18,6 +18,7 @@ import { useFonts } from "expo-font";
 import { ThemeProvider } from "./ThemeContext";
 import { useTheme } from "./ThemeContext";
 
+import DateTimePickerScreen from "./screens/DateTimePickerScreen";
 import JokeScreen from "./screens/JokeScreen";
 import Luffy from "./screens/Luffy.js";
 import Zoro from "./screens/Zoro.js";
@@ -104,6 +105,13 @@ const HomeScreen = ({ navigation }) => {
       color: "#6D8EC5",
       screen: "Fruits",
     },
+    {
+      source: require("./assets/Icons/reloj.png"),
+      title: "Fecha y Hora",
+      color: "#C99FCD",
+      screen: "DateTimePicker",
+    },
+
     // Puedes agregar más personajes aquí
   ];
 
@@ -192,6 +200,10 @@ export default function App() {
           <Stack.Screen name="Brook" component={Brook} />
           <Stack.Screen name="JokeScreen" component={JokeScreen} />
           <Stack.Screen name="Fruits" component={Fruits} />
+          <Stack.Screen
+            name="DateTimePicker"
+            component={DateTimePickerScreen}
+          />
           {/* Agrega más pantallas aquí */}
         </Stack.Navigator>
       </NavigationContainer>

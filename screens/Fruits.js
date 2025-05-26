@@ -66,35 +66,37 @@ export default function Fruits() {
   if (loading) return <ActivityIndicator style={styles.loader} size="large" />;
 
   return (
-    <Layout>
-      <View style={styles.container}>
-        <TextInput
-          placeholder="search for fruit by name..."
-          style={styles.input}
-          value={search}
-          onChangeText={handleSearch}
-        />
+    <ScrollView>
+      <Layout>
+        <View style={styles.container}>
+          <TextInput
+            placeholder="search for fruit by name..."
+            style={styles.input}
+            value={search}
+            onChangeText={handleSearch}
+          />
 
-        <FlatList
-          data={filteredFruits}
-          keyExtractor={(item) => item.id.toString()}
-          renderItem={renderItem}
-        />
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={styles.backButton}
-        >
-          <Text style={styles.backButtonText}> Back</Text>
-        </TouchableOpacity>
-      </View>
-    </Layout>
+          <FlatList
+            data={filteredFruits}
+            keyExtractor={(item) => item.id.toString()}
+            renderItem={renderItem}
+          />
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={styles.backButton}
+          >
+            <Text style={styles.backButtonText}> Back</Text>
+          </TouchableOpacity>
+        </View>
+      </Layout>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff3cd",
+    backgroundColor: "#30292F",
     padding: 20,
     justifyContent: "center",
     alignItems: "center",

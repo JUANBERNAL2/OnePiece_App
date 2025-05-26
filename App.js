@@ -9,6 +9,9 @@ import {
   Dimensions,
 } from "react-native";
 import Layout from "./components/Layout";
+import * as SplashScreenLib from "expo-splash-screen";
+import { useEffect, useState } from "react";
+import SplashScreen from "./components/SplashScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
@@ -26,6 +29,8 @@ import Brook from "./screens/Brook.js";
 import Fruits from "./screens/Fruits.js";
 
 const Stack = createNativeStackNavigator();
+
+SplashScreenLib.preventAutoHideAsync();
 
 const HomeScreen = ({ navigation }) => {
   const items = [
@@ -126,7 +131,29 @@ export default function App() {
     JacquesFrancoisShadow: require("./assets/fonts/JacquesFrancoisShadow-Regular.ttf"),
   });
 
-  if (!fontsLoaded) return null;
+  const [appReady, setAppReady] = useState(false);
+  const [showSplash, setShowSplash] = useState(true);
+
+  useEffect(() => {
+    const prepare = async () => {
+      try {
+        await SplashScreenLib.preventAutoHideAsync();
+        setTimeout(async () => {
+          setShowSplash(false);
+          await SplashScreenLib.hideAsync();
+          setAppReady(true);
+        }, 4000);
+      } catch (err) {
+        console.warn(err);
+      }
+    };
+    prepare();
+  }, []);
+
+  // 👇 Este bloque es el único lugar donde decides qué renderizar
+  if (!fontsLoaded || showSplash) {
+    return <SplashScreen />;
+  }
 
   return (
     <NavigationContainer>

@@ -15,6 +15,8 @@ import SplashScreen from "./components/SplashScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useFonts } from "expo-font";
+import { ThemeProvider } from "./ThemeContext";
+import { useTheme } from "./ThemeContext";
 
 import JokeScreen from "./screens/JokeScreen";
 import Luffy from "./screens/Luffy.js";
@@ -33,6 +35,8 @@ const Stack = createNativeStackNavigator();
 SplashScreenLib.preventAutoHideAsync();
 
 const HomeScreen = ({ navigation }) => {
+  const { isDarkMode, toggleTheme, colors } = useTheme();
+
   const items = [
     {
       source: require("./assets/Icons/muwiguara.png"),
@@ -119,6 +123,20 @@ const HomeScreen = ({ navigation }) => {
               </TouchableOpacity>
             ))}
           </View>
+          <TouchableOpacity
+            onPress={toggleTheme}
+            style={{
+              marginTop: 20,
+              padding: 15,
+              backgroundColor: colors.card,
+              borderRadius: 5,
+            }}
+          >
+            <Text style={{ color: colors.text }}>
+              Cambiar a modo {isDarkMode ? "Claro" : "Oscuro"}
+            </Text>
+          </TouchableOpacity>
+
           <StatusBar style="auto" />
         </View>
       </Layout>
@@ -142,7 +160,7 @@ export default function App() {
           setShowSplash(false);
           await SplashScreenLib.hideAsync();
           setAppReady(true);
-        }, 4000);
+        }, 3000);
       } catch (err) {
         console.warn(err);
       }
@@ -156,26 +174,28 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{ headerShown: false }}
-      >
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="Luffy" component={Luffy} />
-        <Stack.Screen name="Zoro" component={Zoro} />
-        <Stack.Screen name="Nami" component={Nami} />
-        <Stack.Screen name="Usopp" component={Usopp} />
-        <Stack.Screen name="Sanji" component={Sanji} />
-        <Stack.Screen name="Chopper" component={Chopper} />
-        <Stack.Screen name="Robin" component={Robin} />
-        <Stack.Screen name="Franky" component={Franky} />
-        <Stack.Screen name="Brook" component={Brook} />
-        <Stack.Screen name="JokeScreen" component={JokeScreen} />
-        <Stack.Screen name="Fruits" component={Fruits} />
-        {/* Agrega más pantallas aquí */}
-      </Stack.Navigator>
-    </NavigationContainer>
+    <ThemeProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Home"
+          screenOptions={{ headerShown: false }}
+        >
+          <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Luffy" component={Luffy} />
+          <Stack.Screen name="Zoro" component={Zoro} />
+          <Stack.Screen name="Nami" component={Nami} />
+          <Stack.Screen name="Usopp" component={Usopp} />
+          <Stack.Screen name="Sanji" component={Sanji} />
+          <Stack.Screen name="Chopper" component={Chopper} />
+          <Stack.Screen name="Robin" component={Robin} />
+          <Stack.Screen name="Franky" component={Franky} />
+          <Stack.Screen name="Brook" component={Brook} />
+          <Stack.Screen name="JokeScreen" component={JokeScreen} />
+          <Stack.Screen name="Fruits" component={Fruits} />
+          {/* Agrega más pantallas aquí */}
+        </Stack.Navigator>
+      </NavigationContainer>
+    </ThemeProvider>
   );
 }
 

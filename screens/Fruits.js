@@ -69,6 +69,12 @@ export default function Fruits() {
     <ScrollView>
       <Layout>
         <View style={styles.container}>
+          <TouchableOpacity
+            onPress={() => navigation.goBack()}
+            style={styles.backButton}
+          >
+            <Text style={styles.backButtonText}> Back</Text>
+          </TouchableOpacity>
           <TextInput
             placeholder="search for fruit by name..."
             style={styles.input}
@@ -81,12 +87,6 @@ export default function Fruits() {
             keyExtractor={(item) => item.id.toString()}
             renderItem={renderItem}
           />
-          <TouchableOpacity
-            onPress={() => navigation.goBack()}
-            style={styles.backButton}
-          >
-            <Text style={styles.backButtonText}> Back</Text>
-          </TouchableOpacity>
         </View>
       </Layout>
     </ScrollView>

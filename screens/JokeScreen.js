@@ -8,6 +8,7 @@ import {
   ActivityIndicator,
   ScrollView,
   TouchableOpacity,
+  Dimensions,
 } from "react-native";
 import Layout from "../components/Layout";
 import { useNavigation } from "@react-navigation/native";
@@ -56,10 +57,11 @@ const JokeScreen = () => {
 };
 
 export default JokeScreen;
-
+const { height } = Dimensions.get("window");
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    minHeight: height,
     backgroundColor: "#fff3cd",
     padding: 20,
     justifyContent: "center",

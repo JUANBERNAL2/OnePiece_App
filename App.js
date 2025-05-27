@@ -30,6 +30,7 @@ import Robin from "./screens/Robin.js";
 import Franky from "./screens/Franky.js";
 import Brook from "./screens/Brook.js";
 import Fruits from "./screens/Fruits.js";
+import Bounty from "./screens/Bounty.js";
 
 const Stack = createNativeStackNavigator();
 
@@ -110,6 +111,12 @@ const HomeScreen = ({ navigation }) => {
       title: "Fecha y Hora",
       color: "#C99FCD",
       screen: "DateTimePicker",
+    },
+    {
+      source: require("./assets/Icons/wanted.png"),
+      title: "Recompensas",
+      color: "#7C1F31",
+      screen: "Bounty",
     },
 
     // Puedes agregar más personajes aquí
@@ -200,6 +207,7 @@ export default function App() {
           <Stack.Screen name="Brook" component={Brook} />
           <Stack.Screen name="JokeScreen" component={JokeScreen} />
           <Stack.Screen name="Fruits" component={Fruits} />
+          <Stack.Screen name="Bounty" component={Bounty} />
           <Stack.Screen
             name="DateTimePicker"
             component={DateTimePickerScreen}

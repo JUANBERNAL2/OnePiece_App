@@ -35,7 +35,7 @@ export default function DateTimePickerScreen() {
     <ScrollView>
       <Layout>
         <View style={styles.container}>
-          <Text style={styles.title}>CUANDO EMPEZARAS A VER ONE PIECE</Text>
+          <Text style={styles.title}>WHEN YOU'LL START WATCHING ONE PIECE</Text>
           <Text style={{ marginBottom: 20 }}>
             Fecha y hora seleccionada: {date.toLocaleString()}
           </Text>

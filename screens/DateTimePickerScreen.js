@@ -36,15 +36,12 @@ export default function DateTimePickerScreen() {
       <Layout>
         <View style={styles.container}>
           <Text style={styles.title}>WHEN YOU'LL START WATCHING ONE PIECE</Text>
-          <Text style={{ marginBottom: 20 }}>
-            Fecha y hora seleccionada: {date.toLocaleString()}
+          <Text style={styles.dateTimeText}>
+            Selected date and time: {date.toLocaleString()}
           </Text>
 
-          <Button
-            title="Seleccionar Fecha"
-            onPress={() => showPicker("date")}
-          />
-          <Button title="Seleccionar Hora" onPress={() => showPicker("time")} />
+          <Button title="Select Date" onPress={() => showPicker("date")} />
+          <Button title="Select time" onPress={() => showPicker("time")} />
 
           {show && (
             <DateTimePicker
@@ -96,5 +93,11 @@ const styles = StyleSheet.create({
     color: "#000",
     fontSize: 23,
     fontFamily: "JacquesFrancoisShadow",
+  },
+  dateTimeText: {
+    textAlign: "center",
+    fontSize: 19,
+    fontFamily: "JacquesFrancoisShadow",
+    marginBottom: 20,
   },
 });

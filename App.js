@@ -103,19 +103,19 @@ const HomeScreen = ({ navigation }) => {
     {
       source: require("./assets/Icons/diablo.png"),
       title: "Fruits",
-      color: "#6D8EC5",
+      color: "#5620d5",
       screen: "Fruits",
     },
     {
       source: require("./assets/Icons/reloj.png"),
       title: "Fecha y Hora",
-      color: "#C99FCD",
+      color: "#e577ef",
       screen: "DateTimePicker",
     },
     {
       source: require("./assets/Icons/wanted.png"),
       title: "Recompensas",
-      color: "#7C1F31",
+      color: "#d83354",
       screen: "Bounty",
     },
 

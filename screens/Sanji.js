@@ -100,6 +100,7 @@ const styles = StyleSheet.create({
   },
   description: {
     fontSize: 18,
+    marginBottom: 20,
     textAlign: "center",
     fontFamily: "JacquesFrancoisShadow",
   },

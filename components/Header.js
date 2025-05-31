@@ -15,15 +15,15 @@ export default function Header() {
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: "#30292F",
-    height: 60,
+    backgroundColor: "#262025",
+    height: 50,
     justifyContent: "center",
     alignItems: "center",
   },
   text: {
     fontSize: 24,
+    textAlign: "center",
     color: "#fff",
     fontFamily: "JacquesFrancoisShadow",
-    marginTop: 20,
   },
 });

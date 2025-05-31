@@ -98,6 +98,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 18,
     textAlign: "center",
+    marginBottom: 20,
     fontFamily: "JacquesFrancoisShadow",
   },
   backButton: {

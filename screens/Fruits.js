@@ -49,7 +49,7 @@ export default function Fruits() {
   const renderItem = ({ item }) => (
     <ScrollView>
       <View style={styles.card}>
-        <Text style={styles.name}>{item.name}</Text>
+        <Text style={styles.name}>{item.roman_name}</Text>
         <Text style={styles.type}>Tipo: {item.type}</Text>
         <Text style={styles.description}>{item.description}</Text>
         {item.filename && (
@@ -125,33 +125,42 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     backgroundColor: "#eef6ff",
     margin: 10,
-
+    marginBottom: 40,
     borderRadius: 10,
+    padding: 11,
     elevation: 3,
     gap: 10,
   },
   name: {
-    fontSize: 20,
+    flex: 1,
+    textAlign: "center",
+    justifyContent: "center",
+    fontSize: 30,
+    paddingBottom: 20,
     marginBottom: 4,
     fontFamily: "JacquesFrancoisShadow",
   },
   type: {
+    paddingLeft: 40,
     fontFamily: "JacquesFrancoisShadow",
     marginBottom: 4,
     fontSize: 16,
   },
   description: {
-    marginBottom: 7,
-    fontSize: 18,
+    padding: 30,
+    marginBottom: 10,
+    fontSize: 19,
     fontFamily: "JacquesFrancoisShadow",
     color: "#333",
   },
   image: {
     height: 170,
     marginTop: 15,
+    paddingBottom: 30,
   },
   backButton: {
     marginTop: 30,
+    marginBottom: 20,
     paddingVertical: 20,
     paddingHorizontal: 30,
     backgroundColor: "#13258b",

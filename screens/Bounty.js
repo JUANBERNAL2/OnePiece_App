@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   bountyText: {
-    fontSize: 25,
+    fontSize: 30,
     fontFamily: "JacquesFrancoisShadow",
     color: "#FFFF",
     marginBottom: 20,

@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
   },
   jokeText: {
     fontSize: 25,
+    marginBottom: 20,
     textAlign: "center",
     marginTop: 20,
     fontFamily: "JacquesFrancoisShadow",

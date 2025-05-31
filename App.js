@@ -225,7 +225,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     minHeight: height,
-    backgroundColor: "#F2E8CF",
+    backgroundColor: "#e3dac2",
     alignItems: "center",
     paddingTop: 50,
     paddingBottom: 50,
@@ -233,6 +233,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 50,
+    textAlign: "center",
     marginBottom: 20,
     fontFamily: "JacquesFrancoisShadow",
   },

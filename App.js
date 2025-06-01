@@ -125,8 +125,10 @@ const HomeScreen = ({ navigation }) => {
   return (
     <ScrollView>
       <Layout>
-        <View style={styles.container}>
-          <Text style={styles.title}>ONE PIECE</Text>
+        <View
+          style={[styles.container, { backgroundColor: colors.background }]}
+        >
+          <Text style={[styles.title, { color: colors.text }]}>ONE PIECE</Text>
           <View style={styles.gridContainer}>
             {items.map((item, index) => (
               <TouchableOpacity
@@ -183,7 +185,7 @@ export default function App() {
     prepare();
   }, []);
 
-  // 👇 Este bloque es el único lugar donde decides qué renderizar
+  // Este bloques se  renderizar
   if (!fontsLoaded || showSplash) {
     return <SplashScreen />;
   }
@@ -225,7 +227,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     minHeight: height,
-    backgroundColor: "#e3dac2",
+
     alignItems: "center",
     paddingTop: 50,
     paddingBottom: 50,

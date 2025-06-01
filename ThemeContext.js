@@ -12,7 +12,7 @@ export const ThemeProvider = ({ children }) => {
     isDarkMode,
     toggleTheme,
     colors: {
-      background: isDarkMode ? "#121212" : "#F2E8CF",
+      background: isDarkMode ? "#5d5541" : "#F2E8CF",
       text: isDarkMode ? "#FFFFFF" : "#000000",
       card: isDarkMode ? "#1F1F1F" : "#FFFFFF",
     },

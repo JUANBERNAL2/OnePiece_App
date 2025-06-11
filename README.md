@@ -14,7 +14,7 @@ Una aplicación móvil desarrollada en **React Native** inspirada en el universo
 
 > **Requisitos:**  
 > - Node.js instalado  
-> - npm o yarn  
+> - npm
 > - Expo CLI (`npm install -g expo-cli`)
 
 1. Clona el repositorio:

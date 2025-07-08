@@ -13,6 +13,7 @@ import Layout from "../components/Layout";
 import { Video } from "expo-av";
 import { Audio } from "expo-av";
 import { useState } from "react";
+import { useTheme } from "../ThemeContext";
 
 export default function Zoro() {
   const [sound, setSound] = useState();
@@ -32,17 +33,21 @@ export default function Zoro() {
   }, [sound]);
 
   const navigation = useNavigation();
-
+  const { colors } = useTheme();
   return (
     <ScrollView>
       <Layout>
-        <View style={styles.container}>
-          <Text style={styles.title}>RONOROA ZORO</Text>
+        <View
+          style={[styles.container, { backgroundColor: colors.backgroundZoro }]}
+        >
+          <Text style={[styles.title, { color: colors.text }]}>
+            RONOROA ZORO
+          </Text>
           <Image
             source={require("../assets/images/Zoro.jpg")}
             style={styles.image}
           />
-          <Text style={styles.description}>
+          <Text style={[styles.description, { color: colors.text }]}>
             The dream of being the best swordsman in the world is also a promise
             to his best friend Kuina.
           </Text>
@@ -54,20 +59,18 @@ export default function Zoro() {
             resizeMode="contain"
             shouldPlay
             useNativeControls
-            style={{ width: 280, height: 280 }}
+            style={{ width: 400, height: 300 }}
           />
           <View style={styles.container}>
-            <Text style={styles.Audio}>Reproductor de Audio</Text>
+            <Text style={[styles.Audio, { color: colors.text }]}>
+              Audio Player
+            </Text>
 
-            {/* Botón que al presionar para escuchar al personaje*/}
-            <Button
-              title="Reproducir Audio"
-              onPress={playSound}
-              color="#FF5900"
-            />
+            {/* Button that when pressed to listen to the character*/}
+            <Button title="Play Audio" onPress={playSound} color="#FF5900" />
           </View>
 
-          {/* Botón de Volver */}
+          {/* Back Button */}
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}
@@ -83,7 +86,6 @@ export default function Zoro() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#00F52D",
     padding: 20,
     alignItems: "center",
     justifyContent: "center",
@@ -94,12 +96,12 @@ const styles = StyleSheet.create({
     fontFamily: "JacquesFrancoisShadow",
   },
   image: {
-    width: 280,
-    height: 280,
+    width: 340,
+    height: 300,
     resizeMode: "contain",
   },
   description: {
-    fontSize: 18,
+    fontSize: 24,
     marginBottom: 20,
     textAlign: "center",
     fontFamily: "JacquesFrancoisShadow",

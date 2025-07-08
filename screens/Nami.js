@@ -13,6 +13,7 @@ import Layout from "../components/Layout";
 import { Video } from "expo-av";
 import { Audio } from "expo-av";
 import { useState } from "react";
+import { useTheme } from "../ThemeContext"; // Import the useTheme hook
 
 export default function Nami() {
   const [sound, setSound] = useState();
@@ -31,18 +32,21 @@ export default function Nami() {
       : undefined;
   }, [sound]);
 
+  const { colors } = useTheme(); // Use the colors from the theme
   const navigation = useNavigation();
 
   return (
     <ScrollView>
       <Layout>
-        <View style={styles.container}>
-          <Text style={styles.title}>NAMI</Text>
+        <View
+          style={[styles.container, { backgroundColor: colors.backgroundNami }]}
+        >
+          <Text style={[styles.title, { color: colors.text }]}>NAMI</Text>
           <Image
             source={require("../assets/images/Nami.jpg")}
             style={styles.image}
           />
-          <Text style={styles.description}>
+          <Text style={[styles.description, { color: colors.text }]}>
             Mapping the entire world is Nami's dream. She's an expert in
             navigation and cartography, and her dream is to explore and map
             every corner of the world.
@@ -58,17 +62,19 @@ export default function Nami() {
             style={{ width: 280, height: 280 }}
           />
           <View style={styles.container}>
-            <Text style={styles.Audio}>Reproductor de Audio</Text>
+            <Text style={[styles.Audio, { color: colors.text }]}>
+              Audio Player
+            </Text>
 
-            {/* Botón que al presionar para escuchar al personaje*/}
+            {/* Button that when pressed to listen to the character*/}
             <Button
-              title="Reproducir Audio"
+              title="Play Audio"
               onPress={playSound}
               color="#947555"
             />
           </View>
 
-          {/* Botón de Volver */}
+          {/* Back Button */}
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}
@@ -84,7 +90,6 @@ export default function Nami() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#FF5900",
     padding: 20,
     alignItems: "center",
     justifyContent: "center",

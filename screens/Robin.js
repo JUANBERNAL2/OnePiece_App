@@ -13,6 +13,7 @@ import Layout from "../components/Layout";
 import { Video } from "expo-av";
 import { Audio } from "expo-av";
 import { useState } from "react";
+import { useTheme } from "../ThemeContext"; // Import the useTheme hook
 
 export default function Robin() {
   const [sound, setSound] = useState();
@@ -31,18 +32,19 @@ export default function Robin() {
       : undefined;
   }, [sound]);
 
+  const { colors } = useTheme(); // Use the colors from the theme
   const navigation = useNavigation();
 
   return (
     <ScrollView>
       <Layout>
-        <View style={styles.container}>
-          <Text style={styles.title}>NICO ROBIN</Text>
+        <View style={[styles.container, { backgroundColor: colors.backgroundRobin }]}>
+          <Text style={[styles.title, { color: colors.text }]}>NICO ROBIN</Text>
           <Image
             source={require("../assets/images/Nico.jpg")}
             style={styles.image}
           />
-          <Text style={styles.description}>
+          <Text style={[styles.description, { color: colors.text }]}>
             Discovering the history of humanity is Robin's dream, as he searches
             for the true meaning of history and the truth behind the empty
             century.
@@ -58,17 +60,13 @@ export default function Robin() {
             style={{ width: 280, height: 280 }}
           />
           <View style={styles.container}>
-            <Text style={styles.Audio}>Reproductor de Audio</Text>
+            <Text style={[styles.Audio, { color: colors.text }]}>Audio Player</Text>
 
-            {/* Botón que al presionar para escuchar al personaje*/}
-            <Button
-              title="Reproducir Audio"
-              onPress={playSound}
-              color="#558299"
-            />
+            {/* Button that when pressed to listen to the character*/}
+            <Button title="Play Audio" onPress={playSound} color="#558299" />
           </View>
 
-          {/* Botón de Volver */}
+          {/* Back Button */}
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}
@@ -84,7 +82,6 @@ export default function Robin() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#B720FE",
     padding: 20,
     alignItems: "center",
     justifyContent: "center",

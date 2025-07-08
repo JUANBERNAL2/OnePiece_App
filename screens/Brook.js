@@ -13,6 +13,7 @@ import Layout from "../components/Layout";
 import { Video } from "expo-av";
 import { Audio } from "expo-av";
 import { useState } from "react";
+import { useTheme } from "../ThemeContext"; // Import the useTheme hook
 
 export default function Brook() {
   const [sound, setSound] = useState();
@@ -31,18 +32,19 @@ export default function Brook() {
       : undefined;
   }, [sound]);
 
+  const { colors } = useTheme(); // Use the colors from the theme
   const navigation = useNavigation();
 
   return (
     <ScrollView>
       <Layout>
-        <View style={styles.container}>
-          <Text style={styles.title}>BROOK</Text>
+        <View style={[styles.container, { backgroundColor: colors.backgroundBrook }]}>
+          <Text style={[styles.title, { color: colors.text }]}>BROOK</Text>
           <Image
             source={require("../assets/images/Brook.jpg")}
             style={styles.image}
           />
-          <Text style={styles.description}>
+          <Text style={[styles.description, { color: colors.text }]}>
             Not even death is an excuse for not keeping a promise, is the dream
             of Brook, who seeks to keep his promise to Laboon.
           </Text>
@@ -57,13 +59,13 @@ export default function Brook() {
             style={{ width: 280, height: 280 }}
           />
           <View style={styles.container}>
-            <Text style={styles.Audio}>Reproductor de Audio</Text>
+            <Text style={[styles.Audio, { color: colors.text }]}>Audio Player</Text>
 
-            {/* Botón que al presionar para escuchar al personaje*/}
-            <Button title="Reproducir Audio" onPress={playSound} color="#000" />
+            {/* Button to press to listen to the character*/}
+            <Button title="Play Audio" onPress={playSound} color="#000" />
           </View>
 
-          {/* Botón de Volver */}
+          {/* Back Button */}
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}
@@ -79,7 +81,6 @@ export default function Brook() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#dbfab8",
     padding: 20,
     alignItems: "center",
     justifyContent: "center",

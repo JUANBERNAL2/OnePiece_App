@@ -1,17 +1,17 @@
-// Importar  modulos basicos de react
+// Import basic react modules
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-// Definimos el componente Header
+// We define the Header component
 export default function Header() {
   return (
     <View style={styles.header}>
-      <Text style={styles.text}>Mi App</Text>
+      <Text style={styles.text}>My App</Text>
     </View>
   );
 }
 
-// Estilos para el componente Header
+// Styles for the Header component
 
 const styles = StyleSheet.create({
   header: {

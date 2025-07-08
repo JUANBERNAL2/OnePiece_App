@@ -13,6 +13,7 @@ import Layout from "../components/Layout";
 import { Video } from "expo-av";
 import { Audio } from "expo-av";
 import { useState } from "react";
+import { useTheme } from "../ThemeContext"; // Import the useTheme hook
 
 export default function Ussop() {
   const [sound, setSound] = useState();
@@ -31,18 +32,24 @@ export default function Ussop() {
       : undefined;
   }, [sound]);
 
+  const { colors } = useTheme(); // Use the colors from the theme
   const navigation = useNavigation();
 
   return (
     <ScrollView>
       <Layout>
-        <View style={styles.container}>
-          <Text style={styles.title}>USSOP</Text>
+        <View
+          style={[
+            styles.container,
+            { backgroundColor: colors.backgroundUssop },
+          ]}
+        >
+          <Text style={[styles.title, { color: colors.text }]}>USSOP</Text>
           <Image
             source={require("../assets/images/ussop.jpg")}
             style={styles.image}
           />
-          <Text style={styles.description}>
+          <Text style={[styles.description, { color: colors.text }]}>
             To be a great warrior of the sea and never be a coward again is
             Ussop's dream.
           </Text>
@@ -57,17 +64,15 @@ export default function Ussop() {
             style={{ width: 280, height: 280 }}
           />
           <View style={styles.container}>
-            <Text style={styles.Audio}>Reproductor de Audio</Text>
+            <Text style={[styles.Audio, { color: colors.text }]}>
+              Audio Player
+            </Text>
 
-            {/* Botón que al presionar para escuchar al personaje*/}
-            <Button
-              title="Reproducir Audio"
-              onPress={playSound}
-              color="#FAF200"
-            />
+            {/* Button that when pressed to listen to the character*/}
+            <Button title="Play Audio" onPress={playSound} color="#FAF200" />
           </View>
 
-          {/* Botón de Volver */}
+          {/* Back Button */}
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}
@@ -83,7 +88,6 @@ export default function Ussop() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#947555",
     padding: 20,
     alignItems: "center",
     justifyContent: "center",

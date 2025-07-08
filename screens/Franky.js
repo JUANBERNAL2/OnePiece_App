@@ -13,6 +13,7 @@ import Layout from "../components/Layout";
 import { Video } from "expo-av";
 import { Audio } from "expo-av";
 import { useState } from "react";
+import { useTheme } from "../ThemeContext"; // Import the useTheme hook
 
 export default function Franky() {
   const [sound, setSound] = useState();
@@ -31,18 +32,19 @@ export default function Franky() {
       : undefined;
   }, [sound]);
 
+  const { colors } = useTheme(); // Use the colors from the theme
   const navigation = useNavigation();
 
   return (
     <ScrollView>
       <Layout>
-        <View style={styles.container}>
-          <Text style={styles.title}>CUTY FLAM</Text>
+        <View style={[styles.container, { backgroundColor: colors.backgroundFranky }]}>
+          <Text style={[styles.title, { color: colors.text }]}>CUTY FLAM</Text>
           <Image
             source={require("../assets/images/Franky.jpg")}
             style={styles.image}
           />
-          <Text style={styles.description}>
+          <Text style={[styles.description, { color: colors.text }]}>
             Building the ancient weapon Pluton is Franky's dream, as he seeks to
             fulfill his dream of becoming a great builder and creating the best
             ship in the world.
@@ -58,13 +60,13 @@ export default function Franky() {
             style={{ width: 280, height: 280 }}
           />
           <View style={styles.container}>
-            <Text style={styles.Audio}>Reproductor de Audio</Text>
+            <Text style={[styles.Audio, { color: colors.text }]}>Audio Player</Text>
 
-            {/* Botón que al presionar para escuchar al personaje*/}
-            <Button title="Reproducir Audio" onPress={playSound} color="#000" />
+            {/* Button to press to listen to the character*/}
+            <Button title="Play Audio" onPress={playSound} color="#000" />
           </View>
 
-          {/* Botón de Volver */}
+          {/* Back Button */}
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}
@@ -80,7 +82,6 @@ export default function Franky() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#558299",
     padding: 20,
     alignItems: "center",
     justifyContent: "center",

@@ -50,7 +50,7 @@ export default function Fruits() {
     <ScrollView>
       <View style={styles.card}>
         <Text style={styles.name}>{item.roman_name}</Text>
-        <Text style={styles.type}>Tipo: {item.type}</Text>
+        <Text style={styles.type}>type: {item.type}</Text>
         <Text style={styles.description}>{item.description}</Text>
         {item.filename && (
           <Image

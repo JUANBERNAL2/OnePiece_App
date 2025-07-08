@@ -3,7 +3,7 @@ import { View, StyleSheet, Dimensions } from "react-native";
 import Header from "./Header";
 import Footer from "./Footer";
 
-// Layout que envuelve las pantallas
+// Layout that wraps the screens
 export default function Layout({ children }) {
   return (
     <View style={styles.container}>
@@ -14,7 +14,7 @@ export default function Layout({ children }) {
   );
 }
 const { height } = Dimensions.get("window");
-// Estilos para el layout
+// Styles for the layout
 const styles = StyleSheet.create({
   container: {
     flex: 1,

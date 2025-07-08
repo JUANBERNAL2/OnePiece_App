@@ -1,17 +1,17 @@
-// Importar  modulos basicos de react
+// Import basic react modules
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-// Definimos el componente Header
+// We define the Footer component
 export default function Footer() {
   return (
     <View style={styles.footer}>
-      <Text style={styles.text}>@2025 Mi App</Text>
+      <Text style={styles.text}>@2025 My App</Text>
     </View>
   );
 }
 
-// Estilos para el componente Footer
+// Styles for the Footer component
 
 const styles = StyleSheet.create({
   footer: {

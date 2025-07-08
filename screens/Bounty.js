@@ -18,7 +18,7 @@ const Bounty = () => {
 
   const [totalBounty, setTotalBounty] = useState(0);
 
-  //   Guardar el valor de la recompensa total en AsyncStorage
+  // Save the total bounty value in AsyncStorage
   const storeBounty = async (value) => {
     try {
       await AsyncStorage.setItem("totalBounty", value);
@@ -27,7 +27,7 @@ const Bounty = () => {
     }
   };
 
-  // Leer el valor de la recompensa total de AsyncStorage
+  // Read the total bounty value from AsyncStorage
   const getBounty = async () => {
     try {
       const value = await AsyncStorage.getItem("totalBounty");
@@ -43,7 +43,7 @@ const Bounty = () => {
     getBounty();
   }, []);
 
-  // resetear la recompensa total
+  // reset the total bounty
   const resetBounty = async () => {
     try {
       await AsyncStorage.removeItem("totalBounty");
@@ -53,7 +53,7 @@ const Bounty = () => {
     }
   };
 
-  //  Incrementar la recompensa total
+  //  Increment the total bounty
   const increaseTotalBounty = () => {
     const newBounty = totalBounty + 1000;
     setTotalBounty(newBounty);

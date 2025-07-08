@@ -13,6 +13,7 @@ import Layout from "../components/Layout";
 import { Video } from "expo-av";
 import { Audio } from "expo-av";
 import { useState } from "react";
+import { useTheme } from "../ThemeContext"; // Import the useTheme hook
 
 export default function Chopper() {
   const [sound, setSound] = useState();
@@ -31,18 +32,19 @@ export default function Chopper() {
       : undefined;
   }, [sound]);
 
+  const { colors } = useTheme(); // Use the colors from the theme
   const navigation = useNavigation();
 
   return (
     <ScrollView>
       <Layout>
-        <View style={styles.container}>
-          <Text style={styles.title}>TONY TONY CHOPPER</Text>
+        <View style={[styles.container, { backgroundColor: colors.backgroundChopper }]}>
+          <Text style={[styles.title, { color: colors.text }]}>TONY TONY CHOPPER</Text>
           <Image
             source={require("../assets/images/Chopper.jpg")}
             style={styles.image}
           />
-          <Text style={styles.description}>
+          <Text style={[styles.description, { color: colors.text }]}>
             There's no disease that can't be cured, that's Chopper's dream. He's
             a doctor who strives to help others and save lives.
           </Text>
@@ -57,17 +59,13 @@ export default function Chopper() {
             style={{ width: 280, height: 280 }}
           />
           <View style={styles.container}>
-            <Text style={styles.Audio}>Reproductor de Audio</Text>
+            <Text style={[styles.Audio, { color: colors.text }]}>Audio Player</Text>
 
-            {/* Botón que al presionar para escuchar al personaje*/}
-            <Button
-              title="Reproducir Audio"
-              onPress={playSound}
-              color="#B720FE"
-            />
+            {/* Button to press to listen to the character*/}
+            <Button title="Play Audio" onPress={playSound} color="#B720FE" />
           </View>
 
-          {/* Botón de Volver */}
+          {/* Back Button */}
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}
@@ -83,7 +81,6 @@ export default function Chopper() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ED1FD1",
     padding: 20,
     alignItems: "center",
     justifyContent: "center",

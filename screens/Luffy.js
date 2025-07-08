@@ -13,6 +13,7 @@ import Layout from "../components/Layout";
 import { Video } from "expo-av";
 import { Audio } from "expo-av";
 import { useState } from "react";
+import { useTheme } from "../ThemeContext"; // Import the useTheme hook
 
 export default function Luffy() {
   const [sound, setSound] = useState();
@@ -31,18 +32,25 @@ export default function Luffy() {
       : undefined;
   }, [sound]);
 
+  const { colors } = useTheme(); // Use the colors from the theme
   const navigation = useNavigation();
-
   return (
     <ScrollView>
       <Layout>
-        <View style={styles.container}>
-          <Text style={styles.title}>Monkey D. Luffy</Text>
+        <View
+          style={[
+            styles.container,
+            { backgroundColor: colors.backgroundLuffy },
+          ]}
+        >
+          <Text style={[styles.title, { color: colors.text }]}>
+            Monkey D. Luffy
+          </Text>
           <Image
             source={require("../assets/images/Luffy.jpg")}
             style={styles.image}
           />
-          <Text style={styles.description}>
+          <Text style={[styles.description, { color: colors.text }]}>
             The dream of being the pirate king is to be the freest man in the
             world, which is a step toward fulfilling his true dream.
           </Text>
@@ -57,17 +65,15 @@ export default function Luffy() {
             style={{ width: 280, height: 280 }}
           />
           <View style={styles.container}>
-            <Text style={styles.Audio}>Reproductor de Audio</Text>
+            <Text style={[styles.Audio, { color: colors.text }]}>
+              Audio Player
+            </Text>
 
-            {/* Botón que al presionar para escuchar al personaje*/}
-            <Button
-              title="Reproducir Audio"
-              onPress={playSound}
-              color="#00F52D"
-            />
+            {/* Button for hear de voice of character*/}
+            <Button title="Play Audio" onPress={playSound} color="#00F52D" />
           </View>
 
-          {/* Botón de Volver */}
+          {/* Button for Back */}
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}
@@ -83,14 +89,13 @@ export default function Luffy() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#ff443d",
     padding: 20,
     alignItems: "center",
     justifyContent: "center",
     gap: 10,
   },
   title: {
-    fontSize: 34,
+    fontSize: 36,
     fontFamily: "JacquesFrancoisShadow",
   },
   image: {
@@ -99,7 +104,7 @@ const styles = StyleSheet.create({
     resizeMode: "contain",
   },
   description: {
-    fontSize: 18,
+    fontSize: 24,
     marginBottom: 20,
     textAlign: "center",
     fontFamily: "JacquesFrancoisShadow",

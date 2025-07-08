@@ -19,7 +19,6 @@ import { ThemeProvider } from "./ThemeContext";
 import { useTheme } from "./ThemeContext";
 
 import DateTimePickerScreen from "./screens/DateTimePickerScreen";
-import JokeScreen from "./screens/JokeScreen";
 import Luffy from "./screens/Luffy.js";
 import Zoro from "./screens/Zoro.js";
 import Nami from "./screens/Nami.js";
@@ -95,12 +94,6 @@ const HomeScreen = ({ navigation }) => {
       screen: "Brook",
     },
     {
-      source: require("./assets/Icons/sombrero-de-joker.png"),
-      title: "Joker",
-      color: "#65fef4",
-      screen: "JokeScreen",
-    },
-    {
       source: require("./assets/Icons/diablo.png"),
       title: "Fruits",
       color: "#5620d5",
@@ -119,14 +112,14 @@ const HomeScreen = ({ navigation }) => {
       screen: "Bounty",
     },
 
-    // Puedes agregar más personajes aquí
+    //* You can add more characters here
   ];
 
   return (
     <ScrollView>
       <Layout>
         <View
-          style={[styles.container, { backgroundColor: colors.background }]}
+          style={[styles.container, { backgroundColor: colors.backgroundHome }]}
         >
           <Text style={[styles.title, { color: colors.text }]}>ONE PIECE</Text>
           <View style={styles.gridContainer}>
@@ -150,7 +143,7 @@ const HomeScreen = ({ navigation }) => {
             }}
           >
             <Text style={{ color: colors.text }}>
-              Cambiar a modo {isDarkMode ? "Claro" : "Oscuro"}
+              Change theme {isDarkMode ? "Light" : "Dark"}
             </Text>
           </TouchableOpacity>
 
@@ -185,7 +178,7 @@ export default function App() {
     prepare();
   }, []);
 
-  // Este bloques se  renderizar
+  // These blocks will be rendered
   if (!fontsLoaded || showSplash) {
     return <SplashScreen />;
   }
@@ -207,14 +200,13 @@ export default function App() {
           <Stack.Screen name="Robin" component={Robin} />
           <Stack.Screen name="Franky" component={Franky} />
           <Stack.Screen name="Brook" component={Brook} />
-          <Stack.Screen name="JokeScreen" component={JokeScreen} />
           <Stack.Screen name="Fruits" component={Fruits} />
           <Stack.Screen name="Bounty" component={Bounty} />
           <Stack.Screen
             name="DateTimePicker"
             component={DateTimePickerScreen}
           />
-          {/* Agrega más pantallas aquí */}
+          {/* Add more screens here */}
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>
@@ -227,7 +219,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     minHeight: height,
-
     alignItems: "center",
     paddingTop: 50,
     paddingBottom: 50,

@@ -16,10 +16,10 @@ import Layout from "../components/Layout";
 export default function DateTimePickerScreen() {
   const [date, setDate] = useState(new Date());
   const [show, setShow] = useState(false);
-  const [mode, setMode] = useState("date"); // "time" para hora
+  const [mode, setMode] = useState("date"); // "time" for time
 
   const onChange = (event, selectedDate) => {
-    setShow(Platform.OS === "ios"); // en iOS se queda visible
+    setShow(Platform.OS === "ios"); // on iOS it stays visible
     if (selectedDate) {
       setDate(selectedDate);
     }
@@ -51,7 +51,7 @@ export default function DateTimePickerScreen() {
               onChange={onChange}
             />
           )}
-          {/* Botón de Volver */}
+          {/* Back Button */}
           <TouchableOpacity
             onPress={() => navigation.goBack()}
             style={styles.backButton}

@@ -1,6 +1,6 @@
 # One Piece App 🏴‍☠️
 
-¡Bienvenido a la One Piece App! Una aplicación móvil desarrollada con **React Native** y **Expo**, inspirada en el fascinante universo de *One Piece*.
+¡Bienvenido a la One Piece App! Una aplicación móvil desarrollada con **React Native** y **Expo**, inspirada en el fascinante universo de _One Piece_.
 
 Este proyecto te permite explorar información sobre los personajes, frutas del diablo y momentos icónicos de la serie. Es una excelente manera de practicar el desarrollo de aplicaciones móviles multiplataforma mientras te sumerges en el mundo de los piratas.
 
@@ -39,11 +39,9 @@ Este proyecto te permite explorar información sobre los personajes, frutas del 
 
 ## 📸 Screenshots
 
-*Aquí puedes agregar capturas de pantalla de tu aplicación.*
-
-| Pantalla Principal | Pantalla de Personaje |
-| :---: | :---: |
-| ![Screenshot 1](URL_DE_TU_SCREENSHOT_1) | ![Screenshot 2](URL_DE_TU_SCREENSHOT_2) |
+|                              Pantalla Principal                               |                             Pantalla de Personaje                             |
+| :---------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
+| ![Screenshot 1](/assets/images/Screenshot%20from%202025-07-07%2020-48-32.png) | ![Screenshot 2](/assets/images/Screenshot%20from%202025-07-07%2020-49-39.png) |
 
 ---
 
@@ -54,6 +52,7 @@ Sigue estos pasos para tener una copia local del proyecto funcionando.
 ### Prerrequisitos
 
 Asegúrate de tener instalado lo siguiente:
+
 - [Node.js](https://nodejs.org/es/) (versión LTS recomendada)
 - `npm` o `yarn`
 - [Expo Go](https://expo.dev/go) en tu dispositivo móvil (iOS o Android)
@@ -61,25 +60,32 @@ Asegúrate de tener instalado lo siguiente:
 ### Pasos de Instalación
 
 1.  **Clona el repositorio:**
+
     ```bash
     git clone https://github.com/JUANBERNAL2/OnePiece_App.git
     cd OnePiece_App
     ```
 
 2.  **Instala las dependencias del proyecto:**
+
     ```bash
     npm install
     ```
+
     o si usas `yarn`:
+
     ```bash
     yarn install
     ```
 
 3.  **Inicia el servidor de desarrollo de Metro:**
+
     ```bash
     npm start
     ```
+
     o
+
     ```bash
     expo start
     ```
@@ -93,6 +99,7 @@ Asegúrate de tener instalado lo siguiente:
 ## 🎮 Uso
 
 Una vez que la aplicación esté corriendo en tu dispositivo o emulador:
+
 - Navega por la lista de personajes.
 - Toca un personaje para ver sus detalles.
 - Usa los botones para reproducir sonidos o ver videos.
